@@ -33,7 +33,7 @@ public class ArrayList<E extends Comparable<E>> implements List<E> {
 			for (int i = 0; i < size; i++) {
 				if (array[i] == value) {
 					return i;
-				} 
+				}
 			}
 			return -1;
 		} else {
@@ -93,11 +93,10 @@ public class ArrayList<E extends Comparable<E>> implements List<E> {
 	}
 
 	@Override
-	public E remove(int pos) {
-		if(pos < 0) {
-			pos = 0;
-		} else if(pos >= size-1) {
-			pos = size -1;
+	public E remove(int pos) throws IllegalArgumentException {
+		if(pos < 0 || pos >= size-1) {
+			//pos = 0;
+			throw new IllegalArgumentException("Illegal argument inserted. The chosen position is out the array."); 
 		}
 		
 		E result = array[pos];

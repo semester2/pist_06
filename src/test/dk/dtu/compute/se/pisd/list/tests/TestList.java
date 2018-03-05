@@ -156,10 +156,6 @@ public abstract class TestList {
 		
 		list.sort();
 		
-		for (int i = 0; i <= TESTLIMIT; i++) {
-			System.out.println(list.get(i));
-		}
-		
 		for (int i = 0; i <=  TESTLIMIT; i++) {
 			int value = list.get(i);
 			Assert.assertEquals(
@@ -178,10 +174,7 @@ public abstract class TestList {
 		
 		for (int i = 0; i <= TESTLIMIT; i++) {
 			int index = list.indexOf(i);
-			Assert.assertEquals(
-					"Wrong value at position " + (TESTLIMIT - i), 
-					TESTLIMIT - i,
-					index);
+			Assert.assertEquals("Wrong value at position " + (TESTLIMIT - i), TESTLIMIT - i, index);
 		}
 		
 		int index = list.indexOf(-2);
@@ -216,5 +209,15 @@ public abstract class TestList {
 		
 	}
 	
+	@Test
+	public void testRemoveIllegalArgument() {
+		try {
+			list.remove(-3);
+		} 
+		catch (IllegalArgumentException e) {
+			System.out.println(e);
+		}
+		
+	}
 
 }

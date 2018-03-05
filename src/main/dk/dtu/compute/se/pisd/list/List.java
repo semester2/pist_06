@@ -57,7 +57,7 @@ public interface List<E extends Comparable<E>> {
 	 * 
 	 * @return the value which was removed
 	 */
-	E remove(int pos);
+	E remove(int pos) throws IllegalArgumentException;
 	
 
 	
