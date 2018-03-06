@@ -215,9 +215,9 @@ public abstract class TestList {
 			list.remove(-3);
 		} 
 		catch (IllegalArgumentException e) {
-			System.out.println(e);
+			return;
 		}
-		
+		Assert.fail("A pop on an empty stack does not throw an IllegalStateException");
 	}
 
 }

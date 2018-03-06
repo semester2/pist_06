@@ -31,7 +31,7 @@ public class ArrayList<E extends Comparable<E>> implements List<E> {
 	public int indexOf(E value) {
 		if (!isSorted) {
 			for (int i = 0; i < size; i++) {
-				if (array[i] == value) {
+				if (array[i].compareTo(value) == 0) {
 					return i;
 				}
 			}
@@ -94,9 +94,9 @@ public class ArrayList<E extends Comparable<E>> implements List<E> {
 
 	@Override
 	public E remove(int pos) throws IllegalArgumentException {
-		if(pos < 0 || pos >= size-1) {
+		if(pos < 0 || pos > size) {
 			//pos = 0;
-			throw new IllegalArgumentException("Illegal argument inserted. The chosen position is out the array."); 
+			throw new IllegalArgumentException("Illegal argument inserted. The chosen position is out the array. " + pos + " is not valid"); 
 		}
 		
 		E result = array[pos];
